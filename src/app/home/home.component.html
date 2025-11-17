@@ -1,1 +1,18 @@
-<p>home works!</p>
+<div>
+  <app-greeting [greetMessage]="greetName()" />
+  This Project Contains only Angular Beginner Projects
+  <ul class="flex flex-col gap-1">
+    <li
+      class="bg-gray-200 shadow px-3 py-2 hover:bg-gray-400 cursor-pointer rounded"
+      routerLink="/todos"
+    >
+      1. Todos
+    </li>
+    <li
+      class="bg-gray-200 shadow px-3 py-2 hover:bg-gray-400 cursor-pointer rounded"
+      routerLink="/e-comm"
+    >
+      2. E-commerce
+    </li>
+  </ul>
+</div>
