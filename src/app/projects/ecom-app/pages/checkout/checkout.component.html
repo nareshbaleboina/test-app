@@ -1,0 +1,50 @@
+<div class="text-xl font-bold">Checkout</div>
+
+<form
+  class="flex gap-2 flex-col px-2"
+  [formGroup]="checkoutForm"
+  (ngSubmit)="handleSubmit()"
+>
+  <label class="flex flex-row gap-2 items-center">
+    <span class="text-xl w-[110px]">Full Name: </span>
+    <input type="text" formControlName="name" class="input-base" />
+  </label>
+  @if (isInvalid('name')) {
+  <p style="color: red">Name is required.</p>
+  }
+  <label class="flex flex-row gap-2 items-center">
+    <span class="text-xl w-[110px]">Email: </span>
+    <input type="email" formControlName="email" class="input-base" />
+  </label>
+  @if (isInvalid('email')) {
+  <p style="color: red">Email is required.</p>
+  }
+  <label class="flex flex-row gap-2 items-center">
+    <span class="text-xl w-[110px]">Mobile: </span>
+    <input type="text" formControlName="mobile" class="input-base" />
+  </label>
+  @if (isInvalid('mobile')) {
+  <p style="color: red">Mobile number is required.</p>
+  }
+  <label class="flex flex-row gap-2 items-center">
+    <span class="text-xl w-[110px]">Address: </span>
+    <textarea formControlName="address" class="input-base"></textarea>
+  </label>
+  @if (isInvalid('address')) {
+  <p style="color: red">Address is required.</p>
+  }
+  <label class="flex flex-row gap-2 items-center">
+    <span class="text-xl w-[110px]">ZIP Code: </span>
+    <input type="number" formControlName="zipCode" class="input-base" />
+  </label>
+  @if (isInvalid('zipCode')) {
+  <p style="color: red">ZIP Code is required.</p>
+  }
+  <button
+    class="px-3 py-2 bg-green-300 cursor-pointer"
+    title="Place Order"
+    type="submit"
+  >
+    Place Order
+  </button>
+</form>

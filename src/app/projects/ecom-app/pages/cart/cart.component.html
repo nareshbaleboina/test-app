@@ -1,0 +1,38 @@
+<div class="flex flex-col gap-2 mt-2 px-2">
+  @for (item of cartItems(); track item.id) {
+  <div class="shadow rounded p-2 flex-row flex gap-2 items-center">
+    <img [src]="item.image" class="w-[50px] h-[50px] object-contain" />
+    <div class="flex flex-col">
+      <span>{{ item.title }}</span>
+      <span>Price: ${{ item.price }}</span>
+      <div>
+        Quantity:
+        <span class="gap-2">
+          <app-button
+            title="-"
+            [disabled]="item.quantity === 1 ? true : false"
+            (onclick)="this.decrementClick(item.id)" />
+          <span class="mx-2">{{ item.quantity }}</span>
+          <app-button title="+" (onclick)="this.incrementClick(item.id)"
+        /></span>
+      </div>
+    </div>
+    <app-button
+      class="flex-end ml-auto"
+      title="Remove"
+      (onclick)="this.onRemoveClick(item.id)"
+    />
+  </div>
+  } @if (cartItems().length) {
+  <span class="px-2">
+    Total: <span class="font-bold">${{ total() }}</span>
+  </span>
+  <app-button
+    (onclick)="checkoutBtnClick()"
+    class="px-2"
+    title="Proceed to checkout"
+  />
+  } @else {
+  <span>No Items in your cart</span>
+  }
+</div>

@@ -1,0 +1,16 @@
+<nav class="flex justify-between items-center bg-gray-200 shadow p-2">
+  <span class="text-xl font-bold cursor-pointer" routerLink="/e-comm"
+    >Ecom Store</span
+  >
+  <ul>
+    <li>
+      <app-button
+        [title]="'Cart (' + this.cartService.cartItems().length + ')'"
+        (onclick)="handleLogoutClick()"
+        class="m-2"
+        routerLink="cart"
+      />
+      <app-button title="Logout" (onclick)="handleLogoutClick()" />
+    </li>
+  </ul>
+</nav>

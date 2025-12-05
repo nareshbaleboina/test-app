@@ -1,0 +1,49 @@
+<div class="w-[50%] mx-auto">
+  <div>
+    <h3 class="font-bold m-2">
+      Task Manager
+      <span>
+        ({{ store.completedTodos().length }} /{{ store.todos().length }})
+      </span>
+    </h3>
+  </div>
+
+  <form>
+    <input
+      [(ngModel)]="newTodoTitle"
+      name="newTodoInput"
+      class="p-2 border rounded m-2"
+    />
+    <app-button (onclick)="addTodos()" title="Add" />
+  </form>
+  <ul class="ml-2 text-start">
+    @if (!store.filteredTodos().length) {
+    <p class="p-2 font-bold">No Tasks Pending...!</p>
+    } @for (item of store.filteredTodos(); track $index) {
+    <li class="fw-bold my-2" (click)="toggleTodo(item.id)">
+      <input class="pr-2 mr-2" type="checkbox" [checked]="item.completed" />
+      <span class="font-[600]" [class]="item.completed ? 'line-through' : ''">{{
+        item.title
+      }}</span>
+    </li>
+    }
+  </ul>
+
+  <div>
+    <app-button
+      (onclick)="store.filterTodos('all')"
+      [class]="store.filter() === 'all' ? 'bg-blue-700' : ''"
+      title="All"
+    />
+    <app-button
+      (onclick)="store.filterTodos('active')"
+      [class]="store.filter() === 'active' ? 'bg-blue-700' : ''"
+      title="Active"
+    />
+    <app-button
+      (onclick)="store.filterTodos('completed')"
+      [class]="store.filter() === 'completed' ? 'bg-blue-700' : ''"
+      title="Completed"
+    />
+  </div>
+</div>

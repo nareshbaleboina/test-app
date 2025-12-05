@@ -1,0 +1,12 @@
+<div class="grid grid-cols-2 gap-2 mt-2">
+  @if (!products().length) {
+  <div>
+    <div
+      class="mx-auto h-6 w-6 animate-spin rounded-full border-2 border-gray-300 border-t-transparent"
+    ></div>
+    <span>Loading...</span>
+  </div>
+  } @for (product of products(); track product.id) {
+  <app-product-card [product]="product" />
+  }
+</div>

@@ -1,0 +1,13 @@
+<h3>Observable unsubscribe !</h3>
+<div>
+  <ul>
+    @for (item of data; track $index) {
+    <li>{{ item }}</li>
+    }
+  </ul>
+
+  <div>
+    <app-button title="Subscribe" (click)="onSubscribe()"></app-button>
+    <app-button title="Unsubscribe" (click)="unSubscribe()"></app-button>
+  </div>
+</div>

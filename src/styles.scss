@@ -1,6 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
 
+@layer components {
+  .input-base {
+    @apply w-full block rounded-xl border border-gray-300 bg-white px-4 py-2
+           text-gray-900 shadow-sm placeholder:text-gray-400
+           focus:border-indigo-500 focus:outline-none
+           focus:ring-2 focus:ring-indigo-500/50;
+  }
+}
 body {
     padding: 0;
     margin:0;
