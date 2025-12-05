@@ -1,6 +1,6 @@
 ### Directives
 
-# Mainly 3 types
+#### Mainly 3 types
 
 - Componental Directive
 
