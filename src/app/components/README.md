@@ -1,6 +1,6 @@
 ### Directives
 
-# Mainly 3 types
+#### Mainly 3 types
 
 - Componental Directive
 
@@ -105,7 +105,7 @@ It returns ALL the matcing elements
 </ng-container>
 ```
 
-### ng-content
+### ng-content (Content Projection)
 
 - Used to render the content in children component from the parent component directly
 - by using `select` attribute we get the content in children component
@@ -124,3 +124,49 @@ It returns ALL the matcing elements
     <ng-content select="text"></ng-content>
 </div>
 ```
+
+### ContentChild (It's almost same as ViewChild)
+
+- The ContentChild decorator is used to access a reference of a DOM element or Component or directive from the projected content into child component class
+
+```
+// parent.html
+<div>
+    <h1>Header</h1>
+    <app-child>
+        <h2>Children Header</h2>
+        <p #para>Children Content</p>
+        <app-test name='test-name'></app-test>
+    </app-child>
+</div>
+
+child.html
+<div>
+    <h1>Data from Parent component:</h1>
+    <ng-content></ng-contnet>
+</div>
+
+
+
+// child.ts file
+@ContentChild('para') paraEl: ElementRef;
+
+@ContentChild(TestComponent) testEl: TestComponent;
+
+console.log('data::', this.testEl.name, this.paraEl.nativeElement)
+
+```
+
+### ContentChildren (It's same as ViewChildren)
+
+- ContenChildren is used to access the elements from the projected content in child class with all the matching elements
+
+```
+@ContentChildren('tempRefVariable') refElements: QueryList<ElementType>
+
+```
+
+#### The main difference between ViewChild and ContentChild
+
+- For the `same compoennt` we use `@ViewChild`
+- For the `Proejcted content` we use `@ContentChild`
