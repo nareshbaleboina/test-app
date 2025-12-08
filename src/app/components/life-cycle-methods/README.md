@@ -1,7 +1,7 @@
 ### Angular Compliation Flow
 
 - Whenever the Angular component encouters a selector
-- It will instantiate the class of
+- It will instantiate the class
 - Calls the constructor
 - When a constructor is called, by that time none of its input properties are updated and not available to use.
 - When a constructor is called, by that time the child components of that component are not yet consructed
