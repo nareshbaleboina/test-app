@@ -5,12 +5,14 @@
     <li
       class="bg-gray-200 shadow px-3 py-2 hover:bg-gray-400 cursor-pointer rounded"
       routerLink="/todos"
+      appHover
     >
       1. Todos
     </li>
     <li
       class="bg-gray-200 shadow px-3 py-2 hover:bg-gray-400 cursor-pointer rounded"
       routerLink="/e-comm"
+      appHover
     >
       2. E-commerce
     </li>
@@ -18,4 +20,21 @@
   <app-subject></app-subject>
   <app-unsubscribe></app-unsubscribe>
   <app-custom-directives />
+  <div>
+    <input
+      class="py-2 border rounded m-2"
+      [inputUpdater]="true"
+      [setBackground]="'#f0f0f0'"
+      [textColor]="'#0f0f0f'"
+    />
+    <button>Click me</button>
+  </div>
+
+  <!-- <div
+    ngCustomClass
+    [display]="{ test1: true, 'test-2': true, 'test-3': false }"
+  > -->
+  <div [ngCustomClass]="{ test1: true, 'test-2': true, 'test-3': false }">
+    Checking custom class directive
+  </div>
 </div>

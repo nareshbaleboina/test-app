@@ -1,8 +1,36 @@
 <h1>Custom Directives</h1>
 
 <div>Types of Directives</div>
+<ul>
+  <li setBackground>Component Directives</li>
+  <li>Attribute Directives</li>
+  <li>Structural Directives</li>
+</ul>
+
 <div>
-  <span setBackground>Component Directives</span>
-  <span>Attribute Directives</span>
-  <span>Structural Directives</span>
+  <h4 class="p-2 m-2 text-2xl bold">Custom Structural Directive</h4>
+  <!-- <code> -->
+  <!-- <div *ngIf="display; else elseText">Some If text</div> -->
+  <ng-template [ngIf]="display" [ngIfElse]="elseText">
+    Some If text</ng-template
+  >
+  <ng-template #elseText>Else text </ng-template>
+  <!-- </code> -->
+  <div>
+    Whenever u are using structual directives with asterisk then complier will
+    create the <code>ng-template</code> with the block of the code first, then
+    it will add the attribute directive to the <code>ng-template</code> like ,
+    <code> ng-template [ngIf]='condition' </code>
+  </div>
+  <hr />
+  <h4 class="p-2 m-2 text-2xl bold">Custom If Directive</h4>
+  <div *ngCustomIf="true">Custom if text</div>
+  <hr />
+  <div class="p-2 m-2 text-2xl bold">ngSwitch</div>
+  <div class="parent" [ngSwitch]="tab">
+    <div class="child" *ngSwitchDefault>Child 1</div>
+    <div class="child" *ngSwitchCase="2">Child 2</div>
+    <div class="child" *ngSwitchCase="3">Child 3</div>
+    <div class="child" *ngSwitchCase="4">Child 4</div>
+  </div>
 </div>
