@@ -2,6 +2,10 @@
 
 - Dependency Injection is design pattern where a class does not create its own dependencies, but instead recives it from the external source
 
+## Dependecy
+
+- A dependency is a realtionship between two software components where one component relies on another component to work properly
+
 #### Without DI (Bad Practice)
 
 ```
@@ -9,6 +13,11 @@ class UserComponent {
   private userService = new UserService(); // tightly coupled
 }
 ```
+
+- Without a DI , a class is tightly coupled with its dependency
+- this makes a class non flexible
+- any changes in dependency forces us to change class implementation
+- Because of this testing class is difficult, If the dependency changes , the class has to be changes , if the class changes then test code also need to change
 
 Problems:
 
@@ -170,8 +179,8 @@ Root Injector
 _Rule:_
 
 - Angualr Searches from child -> parent -> root until it finds a provider
-
-**Example**
+- If the provider provides in parent and child , Child component instance will override the Its parent component dependency instance
+  **Example**
 
 ```
 @Component({
@@ -191,6 +200,7 @@ export class ChildComponent {
 
 - Services can inject other services
 - Angular resolves dependecies recursively.
+- When we provide a dependency on root component, same instance of that dependency is injected to all the components, directive and services
 
 ```
 @Injectable({ providedIn: 'root' })
@@ -198,6 +208,11 @@ export class OrderService {
   constructor(private http: HttpClient) {}
 }
 ```
+
+## Module Injector
+
+- We can also inject a service from module class. In that case same instance of the dependency will be avialble throughout the application.
+- In this way we imolement singleton pattern where a single instance is shared throughout the application
 
 ## Injection Tokens
 
@@ -280,3 +295,9 @@ TestBed.configureTestingModule({
 - Use InjectToken for configs
 - Avoid component level providers unless required
 - Use factory proviers for environment based logic
+
+### 3 steps to follow to inject a service
+
+- Use @Injectable for every service
+- Declare a service in constructor to use in class
+- Provide the service in to the module level
