@@ -1,6 +1,6 @@
 # Dependency Injection (DI)
 
-- Dependency Injection is design pattern where a class does not create its own dependencies, but instead recives it from the external source
+- Dependency Injection is design pattern where a `class does not create its own dependencies`, but instead `recives it from the external source`
 
 ## Dependecy
 
